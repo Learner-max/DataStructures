@@ -20,6 +20,8 @@ class Codechef
 	
 	public static boolean isMajority(int[] arr, int target)
 	{
+		if(arr.length==0 || arr ==null)
+			return false;
 	    int l=0;
 	    int  r= arr.length-1;
 	    while(l<r)
