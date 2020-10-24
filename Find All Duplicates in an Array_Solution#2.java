@@ -26,6 +26,7 @@ class Codechef
 	public static void repeatingElements(int[] arr) {
 	    int n=arr.length;
         
+        // Solution is vaild if array conatins elements  0<=arr[i]<=n-1 
         for(int i=0;i<arr.length;i++)
         {
             arr[arr[i]%n] +=n;
