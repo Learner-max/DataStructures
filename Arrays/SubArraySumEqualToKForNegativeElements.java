@@ -7,6 +7,7 @@ import java.io.*;
 /* Name of the class has to be "Main" only if the class is public. */
 class Codechef
 {
+	//Same program can be used to find Subarray with sum zero.
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		// your code goes here
