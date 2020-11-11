@@ -10,7 +10,7 @@ class Codechef
 	public static void main(String[] args){
 	/*
 	    Maximum sum subarray
-	    TC:O(m+n) SC:O(m) orO(n)
+	    
      */
      
     int arr1[] = {-2,-3,4,-1,-2,1,5,-3} ;
@@ -49,22 +49,31 @@ class Codechef
 */
     public static void largestSumSubArrayMethod_2(int[] arr) {
         
-        int curr_maxsum=0;
+     	int curr_maxsum=0;
         int max_sumSubarray=0;
-        
+        int start=0;
+        int end=0;
+        int s=0;
         for(int i=0;i<arr.length;i++)
         {
             if(curr_maxsum+arr[i]<0)
             {
                 curr_maxsum=0;
+                s=i+1;
             }
             else
               curr_maxsum+=arr[i];
              
-            max_sumSubarray=Math.max(curr_maxsum,max_sumSubarray);
+            if(curr_maxsum>max_sumSubarray)
+            {
+            max_sumSubarray=curr_maxsum;
+            start=s;
+            end=i;
+            }
         }
         
-        System.out.println(max_sumSubarray);
+        System.out.println(max_sumSubarray+" found at indexes: "+ start+" " +end);
+        
         
         
     }
