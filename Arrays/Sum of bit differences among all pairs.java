@@ -44,14 +44,14 @@ class Codechef
 	    
 	    for(int i=0;i<32;i++)
 	    {
-	        int counton=0;
+	        long counton=0;
 	        for(int a:arr)
 	        {
 	            if((a & (1<< i) )!=0)
 	            counton++;
 	        }
-	        int countoff=arr.length-counton;
-	        int diff=counton*countoff*2;
+	        long countoff=arr.length-counton;
+	        long diff=counton*countoff*2;
 	        
 	        res=res+diff;
 	    }
