@@ -61,7 +61,7 @@ class Codechef
 	    else if(arr[l]<=arr[mid])
 	    {
 	        l=mid+1;
-	    }else 
+	    }else if(arr[mid]<=arr[r])
 	    {
 	        r=mid-1;
 	    }
