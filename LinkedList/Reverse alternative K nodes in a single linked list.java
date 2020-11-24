@@ -110,7 +110,7 @@ class Codechef
         return -1;
         return tail.data;
     }
-    
+    // Iterative Approach
     public Node reverseAlternateGroups(Node node,int k)
     {
         
@@ -159,7 +159,7 @@ class Codechef
     }
     
     
-    // Recursive Approach for Reverse Linked list in alternate groups of k
+    // Recursive Approach for Reverse Linked list in alternate groups of k- Solution#1
     
     public Node reverseAlternateGroupsRecursive(Node node, int k)
     {
@@ -194,7 +194,7 @@ class Codechef
         
         return prev;
     }
-    
+      // Recursive Approach for Reverse Linked list in alternate groups of k- Solution#2
     public Node kthReverseAlternateRecursive(Node node,int k,boolean flag)
     {
         if(node==null)
