@@ -161,7 +161,7 @@ return -1;
 */
 public void printNodesAtDistk(Node root, int k)
 {
-   if(root==null)
+   if(root==null ||k<0)
 	return;
    printNodesAtkUtil(root,k);
 }
@@ -169,8 +169,11 @@ private void printNodesAtkUtil(Node root, int k)
 {
   if(root==null)
    return ;
-if(k==0)
-   System.out.print(root.data+" ");
+if(k==0)  
+{
+	System.out.print(root.data+" ");
+	return;
+}
 
 printNodesAtkUtil(root.left,k-1);
 printNodesAtkUtil(root.right,k-1);
