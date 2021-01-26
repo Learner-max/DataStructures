@@ -84,8 +84,7 @@ class Codechef
     {
         int data;// Node Data
         int  level;//Vertical Distance or Level of a Tree
-        int min ;
-        int max;
+       
         Pair(int data,int level)
         {
             this.data=data;
