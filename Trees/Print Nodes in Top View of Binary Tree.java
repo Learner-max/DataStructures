@@ -5,6 +5,66 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
+
+/*
+ Iterative Approach
+
+
+	/* 
+    
+    class Node 
+    	int data;
+    	Node left;
+    	Node right;
+	*/
+    static class Pair
+    {
+        int hd;
+        Node node;
+        Pair(int hd, Node node)
+        {
+            this.hd=hd;
+            this.node=node;
+        }
+    }
+    
+	public static void topView(Node root) {
+      
+      if(root==null)
+      return;
+      Queue<Pair> q=new LinkedList<>();
+      q.add(new Pair(0,root));
+      Map<Integer,Integer> map=new HashMap<>();
+      int min=0;
+      int max=0;
+      while(!q.isEmpty())
+      {
+          Pair p=q.remove();
+          if(!map.containsKey(p.hd))
+          {
+              map.put(p.hd,p.node.data);
+          }
+          if(p.node.left!=null)
+          {
+              q.add(new Pair(p.hd-1,p.node.left));
+          }
+          if(p.node.right!=null)
+          {
+              q.add(new Pair(p.hd+1,p.node.right));
+          }
+          min=p.hd<min?p.hd:min;
+          max=p.hd>max?p.hd:max;
+      }
+      
+      for(int i=min;i<=max;i++)
+      {
+          System.out.print(map.get(i)+" ");
+      }
+    }
+    
+
+
+*/
 class Codechef
 {
     
