@@ -30,7 +30,14 @@ class Codechef
 	    for(int i=0;i<arr.length;i++)
 	    {
 	        curr_sum+=arr[i];
-	        
+	        /*
+		  Use these lines instead of :
+		  map.put(curr_sum,new ArrayList<>());
+	          map.get(curr_sum).add(-1);
+	     --------------------------------------------------
+		 if(curr_sum==0)
+	        System.out.println("Subarray Index"+"0"+" "+i);
+		*/
 	        
 	        if(map.containsKey(curr_sum))
 	        {
