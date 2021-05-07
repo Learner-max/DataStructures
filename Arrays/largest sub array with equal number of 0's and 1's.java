@@ -38,7 +38,7 @@ class Codechef
 	        }
 	        if(map.containsKey(curr_sum))
 	        {
-	            int s=i-(map.get(curr_sum)+1);
+	            int s=i-(map.get(curr_sum)+1);->s=i-(map.get(curr_sum))
 	            if(s>msize)
 	            {
 	                msize=s;
@@ -46,12 +46,12 @@ class Codechef
 	                u=i;
 	            }
 	        }
-	        if(!map.containsKey(curr_sum))
+	        if(!map.containsKey(curr_sum))->not necessary
 	        map.put(curr_sum,i);
 	        
 	    }
 	    
 	    System.out.println(l+" "+u);
-	    System.out.println((l==0)?msize:msize+1);
+	    System.out.println((l==0)?msize:msize+1);-> msize
 	}
 }
