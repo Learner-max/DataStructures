@@ -76,4 +76,120 @@ class Codechef
         return arr;
         
     }
+	
+ /*                   New Code --Refer This
+ class Codechef
+{
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	getMajorityElementsLinearSpace(new int[]{3,1,2,3,1,2,1,3});
+	System.out.println();
+	getMajorityElementsLinearSpace(new int[]{5, 3, 5});
+	System.out.println();
+	getMajorityElementsLinearSpace(new int[]{7, 7, 7, 3, 4, 4, 4, 5});
+        
+	}
+
+   
+       //Solution Approach: Sort the Array
+    
+    
+    public static void getMajorityElements(int[] arr)
+    {
+        Arrays.sort(arr);
+        int n=arr.length;
+        int third=n/3;
+        int majority=arr[0];
+        int count=1;
+        
+        
+        for(int i=0;i<n-1;i++)
+        {
+            if(count>third){
+                System.out.print(majority+" ");
+            }
+            
+            if(arr[i]==arr[i+1]){
+                count++;
+                majority=arr[i];
+            }
+            else
+            {
+                majority=arr[i+1];
+                count=1;
+            }
+        }
+        if(count>third){
+                System.out.print(majority+" ");
+            }
+    }
+    
+    
+     Solution Approach Based on Moore's Vooting Algorithm
+     Idea: In an array of size n there cannot be more than 2 elements
+     having count>n/3
+    
+    public static int[] getMajorityCandidates(int[] arr)
+    {
+        int cand1=arr[0];
+        int cand2=arr[1];
+        int cand1Count=1;
+        int cand2Count=1;
+        int n=arr.length;
+        int third=n/3;
+        
+        for(int i=2;i<arr.length;i++)
+        {
+            if(cand1==arr[i])
+            cand1Count++;
+            else if(cand2==arr[i])
+            cand2Count++;
+            else if(cand1Count==0)
+            {
+                cand1=arr[i+1];
+                cand1Count=1;
+            }
+            else if(cand2Count==0)
+            {
+                cand2=arr[i+1];
+                cand2Count=1;
+            }
+            else
+            {
+                cand1Count--;
+                cand2Count--;
+            }
+        }
+        int[] res=new int[2];
+        res[0]=cand1;
+        res[1]=cand2;
+        //System.out.println(cand1+" "+cand2);
+        return res;
+    }
+    
+    public static void getMajorityElementsLinearSpace(int[] arr)
+    {
+        int[] candidates=getMajorityCandidates(arr);
+        int third=arr.length/3;
+        int cand1Count=0;
+        int cand2Count=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            if(candidates[0]==arr[i])
+            cand1Count++;
+            if(candidates[1]==arr[i])
+            cand2Count++;
+        }
+        if(cand1Count>third && cand2Count>third)
+        System.out.println(candidates[0]+" "+candidates[1]);
+        else if(cand1Count>third)
+        System.out.println(candidates[0]);
+        else if(cand2Count>third)
+        System.out.println(candidates[1]);
+        else
+        System.out.println("No Majority Elements");
+    }
+}
+*/
 }
