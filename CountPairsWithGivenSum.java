@@ -60,12 +60,12 @@ public class CountPairsWithGivenSum {
 			return 0;
 		HashMap<Integer,Integer> map=new HashMap<>();
 		int count=0;
-		int occurance=0;
+		int occurance=1;
 		
 		for(int i=0;i<arr.length;i++)
 		{
 			int value=sum-arr[i];
-			if(map.get(value)!=null)
+			if(map.get(value)!=null && value!=arr[i])
 			{
 				//occurance=map.get(value);
 				count=count+map.get(value);
@@ -73,8 +73,11 @@ public class CountPairsWithGivenSum {
 			if(map.get(arr[i])!=null)
 			{
 				occurance=map.get(arr[i])+1;
+				map.put(arr[i], occurance);
 			}
-			map.put(arr[i], occurance);
+			else
+			map.put(arr[i], 1);
+			
 		}
 		return count;
 		
