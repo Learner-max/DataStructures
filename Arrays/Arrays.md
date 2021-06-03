@@ -1,3 +1,6 @@
+
+
+				https://www.geeksforgeeks.org/top-50-array-coding-problems-for-interviews/
 Find a pair in an array of size ‘n’, whose sum is X
 Find a majority element in an array of size ‘n’
 Find the number occuring odd number of times in a given array of size ‘n’
@@ -31,3 +34,5 @@ Given a positive number X, print all jumping numbers(all adjacent digits in it d
 Given an array and an integer ‘k’, find the maximum, for each and every contiguous subarray of size ‘k’
 Search an element in a sorted rotated array
 Find the maximum value of a[j]-a[i]+a[l]-a[k], for every four indices i, j, k, l such that i< j < k < l.
+
+
