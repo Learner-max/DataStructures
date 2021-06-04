@@ -24,7 +24,7 @@ class Codechef
         displayMatrix(mat);
 	}
 	
-	public static void rotateMatrix(int[][] matrix)
+	public static void rotateMatrixAntiClockWise(int[][] matrix)
 	{
 	    int rows=matrix.length;
 	    int columns=matrix[0].length;
