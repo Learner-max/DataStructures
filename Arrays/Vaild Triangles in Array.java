@@ -22,6 +22,7 @@ class Codechef
 	    int count=0;
 	    int n=arr.length;
 	    int k=0;
+		Arrays.sort(arr);
 	    for(int i=0;i<=n-3;i++)
 	    {
 	        k=i+2;
