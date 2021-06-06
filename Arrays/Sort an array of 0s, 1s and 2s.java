@@ -64,4 +64,36 @@ class Codechef
 	        
 	    }
 	
+	//New Code-Refer this code//
+	public static int[] sortArray(int[] arr, int n)
+    {
+        int l=0;//l keeper of 0
+        int m=0;//keeper of 1
+        int h=n-1;//keeper of 2
+        
+        while(m<=h)
+        {
+            if(arr[m]==0)
+            {
+                int temp=arr[l];
+                arr[l]=arr[m];
+                arr[m]=temp;
+                m++;
+                l++;
+            }
+            else if(arr[m]==1)
+            m++;
+            else
+            {
+                int temp=arr[h];
+                arr[h]=arr[m];
+                arr[m]=temp;
+                //m++;
+                h--;
+            }
+        }
+        
+        return arr;
+    }
+	
 }
