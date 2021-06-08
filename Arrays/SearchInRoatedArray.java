@@ -65,7 +65,7 @@ class Codechef
 	    return -1;
 	}
 	
-	//Using Recursion
+	//Using Recursion and In Single Traversal
 	public static int searchSingleTraversal(int[] arr, int l,int h, int target)
 	{
 	    if(l>h)
@@ -91,7 +91,7 @@ class Codechef
 	    
 	}
 	
-	//Using Iterative Approach
+	//Using Iterative Approach and Single Array Traversal
 	public  int binarySearch(int[] arr, int target)
 	{
         int l=0;
@@ -110,6 +110,35 @@ class Codechef
                 l=mid+1;
 	    }
 	    return -1;
-	}   
+	}  
+	
+	//Above methods do not handle duplicate elements in array
+	
+	public  int binarySearchWithDuplicates(int[] arr, int target)
+	{
+        int l=0;
+        int h=arr.length-1;
+        int n=arr.length;
+	    while(l<=h)
+	    { 
+	        
+            while(l<h && arr[l]==arr[l+1])
+                l++;
+            
+            while(h>l && arr[h]==arr[h-1])
+                h--;
+            
+            int mid=l+(h-l)/2;
+            
+            if(arr[mid]==target)
+                return mid;
+            else if((target>=arr[l] && target<arr[mid]) ||
+                   (arr[l]>arr[mid] &&(target>=arr[l] || target<arr[mid])))
+                h=mid-1;
+            else
+                l=mid+1;
+	    }
+	    return -1;
+	}  
 	    
 }
