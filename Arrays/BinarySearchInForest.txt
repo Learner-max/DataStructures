@@ -1,0 +1,82 @@
+class Solution
+{
+    
+    //Brute Force 
+    static int find_heightBruteForce(int tree[], int n, int k)
+    {
+        //Find Max Element from Array
+        int maxH=Integer.MIN_VALUE;
+        int indexH=-1;
+        int sum=0;
+        for(int i=0;i<tree.length;i++)
+        {
+            if(tree[i]>maxH)
+            maxH=tree[i];
+        }
+        for(int i=0;i<=maxH;i++)
+        {
+            sum=0;
+            for(int j=0;j<tree.length;j++)
+            {
+                if(tree[j]>i)
+                {
+                    sum+=(tree[j]-i);
+                   
+                    indexH=i;
+                }
+               
+            }
+            //System.out.println(sum+" "+indexH);
+            if(sum==k)
+            {
+                return indexH;
+            }
+        }
+        return -1;
+    }
+    
+    //Efficient Solution -Using Binary Search
+    static int find_height(int tree[], int n, int k)
+    {
+        int maxH=Integer.MIN_VALUE;
+        int indexH=-1;
+        int sum=0;
+        for(int i=0;i<tree.length;i++)
+        {
+            if(tree[i]>maxH)
+            maxH=tree[i];
+        }
+        int l=0;
+        
+        while(l<=maxH)
+        {
+            int mid=l+(maxH-l)/2;
+            
+            int count=woodCollected(tree,mid);
+            
+            if(count==k)
+            return mid;
+            
+            else if(count>k)
+            l=mid+1;
+            else
+            maxH=mid-1;
+        }
+        return -1;
+    }
+    
+    static int woodCollected(int[] tree, int H)
+    {
+        int sum=0;
+        for(int j=0;j<tree.length;j++)
+            {
+                if(tree[j]>H)
+                {
+                    sum+=(tree[j]-H);
+                   
+                }
+               
+            }
+        return sum;
+    }
+}
