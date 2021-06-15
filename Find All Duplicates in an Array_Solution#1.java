@@ -40,5 +40,37 @@ class Codechef
     
        
     }
+	//Refer This approach
+	 public List<Integer> findDuplicates(int[] nums) {
+        
+        List<Integer> res=new ArrayList<>();
+        int n=nums.length;
+        
+        if(n==0)
+            return res;
+        if(n==1)
+        {
+            //res.add(nums[0]);
+            return res;
+        }
+         for(int i=0;i<nums.length;i++)
+        {
+             nums[i]=nums[i]-1;
+         }
+        for(int i=0;i<nums.length;i++)
+        {
+            nums[nums[i]%n]=nums[nums[i]%n]+n;
+        }
+        //for(int a:nums)
+           // System.out.print(a+" ");
+        System.out.println();
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]/n==2)
+                res.add(i+1);
+        }
+        
+        return res;
+    }
 }
 
