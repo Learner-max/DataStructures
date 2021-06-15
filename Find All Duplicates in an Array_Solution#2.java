@@ -46,5 +46,46 @@ class Codechef
            arr[i]=arr[i]%n;
        }
     }
+	//New Code added
+	public static void findDuplicates(int[] arr, int n)
+	{
+	    //Assumption: Array with n Elements containing elements from 0 to n-1
+	    
+	    
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        arr[arr[i]%n]=arr[arr[i]%n]+n;
+	    }
+	    for(int a:arr)
+	    System.out.print(a+" ");
+	    System.out.println();
+	    for(int i=0;i<n;i++)
+	    {
+	        if(arr[i]/n>1){
+	            System.out.print(i+" ");
+	        }
+	    }
+	}
+	
+	public static void findDuplicatesInOrder(int[] arr, int n)
+	{
+	    int f=0;
+	    for(int i=0;i<n;i++)
+	    {
+	        if(arr[arr[i]%n]>n)
+	        {
+	            if(arr[arr[i]%n]<2*n)
+	            {
+	                System.out.print(arr[i]%n+" ");
+	                f=1;
+	            }
+	        }
+	        arr[arr[i]%n]=arr[arr[i]%n]+n;
+	    }
+	    
+	    if(f==0)
+	    System.out.println("No Repeating Elements");
+	}
 }
 
