@@ -17,10 +17,8 @@ public class CountPairsWithGivenSum {
 			//{1, 1, 1, 1};
 			//{1, 5, 7, -1, 5};
 		
-		int sum=11;
-				//6;
-				//2;
-				//6;
+		int sum=11; //Output:9
+				
 		System.out.println(getPairsCountBruteForce(arr,sum));
 
 	}
@@ -36,7 +34,7 @@ public class CountPairsWithGivenSum {
 		
 		for(int i=0;i<arr.length;i++)
 		{
-			int temp=sum-arr[i];
+			
 			for(int j=i+1;j<arr.length;j++)
 			{
 				if(arr[i]+arr[j]==sum)
