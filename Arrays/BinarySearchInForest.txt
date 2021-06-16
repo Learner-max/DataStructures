@@ -1,6 +1,6 @@
 class Solution
 {
-    
+    //THIS PROBLEM IS SAME AS ALLOCATION OF PAGES USING BINARY SEARCH
     //Brute Force 
     static int find_heightBruteForce(int tree[], int n, int k)
     {
