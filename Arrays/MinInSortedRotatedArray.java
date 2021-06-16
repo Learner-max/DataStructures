@@ -45,4 +45,42 @@ lass Solution {
 	        
 	        return -1;
 	    }
+	
+	// To Handle Duplicates in Array
+	public int binarySearch(int[] nums,int l,int h)
+    {
+        int n=nums.length;
+        while(l<=h)
+        {
+            
+            if(nums[l]<nums[h])
+                return nums[l];
+            
+            if(nums[l]==nums[h] && l==h)
+                return nums[l];
+          
+            int mid=l+(h-l)/2;
+            
+            int next=(mid+1)%n;
+            
+            int prev=(mid+n-1)%n;
+            
+            if(nums[mid]>nums[next])
+                return nums[mid+1];
+            
+            if(nums[mid]<nums[prev])
+                return nums[mid];
+            
+            if(nums[0]<nums[mid])
+                 l=mid+1;
+            else if(nums[h]>nums[mid])
+               h=mid-1;
+            else
+                l++;
+        }
+            
+        
+        
+        return -1;
+    }
 }
