@@ -1,0 +1,46 @@
+class Solution{
+
+// This Approach will give overflow error even with slightly bigger numbers.
+    static int trailingZeroes(int N){
+        // Write your code here
+        
+        ArrayList<Long> fact=new ArrayList<>();
+        fact.add(new Long(1));
+        
+        for(int i=1;i<=N;i++)
+        {
+            fact.add((fact.get(i-1)*i));
+        }
+        
+        Long l=fact.get(N);
+        int count=0;
+        while(l!=0){
+        if(l%10==0)
+        {
+            count++;
+            l=l/10;
+        }else
+        {
+            break;
+        }
+        }
+        
+        return count;
+        
+    }
+
+static int trailingZeroes(int N){
+        // Write your code here
+        
+       int count=0;
+       int temp=N;
+       while(N/5>=1)
+       {
+           count=count+(N/5);
+           N=N/5;
+       }
+       
+       return count;
+        
+    }
+}
