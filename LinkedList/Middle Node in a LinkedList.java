@@ -154,7 +154,7 @@ class Codechef
         Node slow =node;
         Node fast =node;
         
-        while(fast!=null && fast.next.next!=null)
+        while(fast!=null && fast.next!=null)
         {
             fast=fast.next.next;
             slow=slow.next;
