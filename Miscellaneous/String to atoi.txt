@@ -1,0 +1,68 @@
+class Solution {
+    public int myAtoi(String s) {
+        
+        long limit=(long)Math.pow(2,31);
+        String s1="";
+        boolean digit=false;
+        char sign='n';
+        long num=0;
+        
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)!=' ')
+            {
+                s1=s.substring(i);
+                break;
+                
+            }
+        }
+        
+        for(char x:s1.toCharArray())
+        {
+             if(digit && (x=='-' || x=='+'))
+            {
+                break;
+            }
+            if(sign=='n' && (x=='-' || x=='+'))
+            {
+                if(x=='-')
+                    sign='-';
+                else
+                    sign='+';
+            }
+            else
+            {
+                if(isDigit(x))
+                {
+                    num=(num*10)+(x-'0');
+                      if(num>limit)
+                          break;
+                    digit=true;
+                }
+                else
+                    break;
+            }
+        }
+        if(sign=='-')
+        {
+            num=num*-1;
+            if(num<-limit)
+                num=-limit;
+            return (int) num;
+        }
+        if(num>limit-1)
+          num=limit-1;
+        
+        return (int)num;
+    }
+    
+    public  boolean isDigit(char ch)
+    {
+    	
+    	if(ch>='0' && ch<='9')
+    	return true;
+    	
+    	else
+    		return false;
+    }
+}
