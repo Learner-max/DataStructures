@@ -1,0 +1,103 @@
+package com.ds.learn;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MinWindowSubString {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String s="ADOBECODEBANC";
+		String p="ABC";
+		//System.out.println(myAtoi(str));
+		//System.out.println(compareVersion(version1,version2));
+		//System.out.println(reverseVowels("leetcode"));
+		System.out.println(minWindow(s,p));
+		
+
+	}
+	
+	 public static String minWindow(String s, String t) {
+	        
+	      Map<Character, Integer> requiredSubString=new HashMap<>();
+	      Map<Character, Integer> charactersInWindow=new HashMap<>();
+	      
+	      int left=0;
+	      int right=0;
+	      int charFrequencies=0;
+	      
+	    
+	      int minWindowSize=Integer.MAX_VALUE;
+	      int windowSize=0;
+	      String windowStr="";
+	      for(int i=0;i<t.length();i++)
+	      {
+	        if(requiredSubString.containsKey(t.charAt(i)))
+	        {
+	          requiredSubString.put(t.charAt(i),requiredSubString.get(t.charAt(i))+1);
+	        }else
+	        {
+	          requiredSubString.put(t.charAt(i),1);
+	        }
+	      }
+	      int totalRequiredChars=requiredSubString.size();
+	      while(right<=s.length()-1)
+	      {
+	        char searchChar=s.charAt(right);
+	        
+	        addToWindowMap(charactersInWindow,searchChar);
+	        
+	        if(requiredSubString.containsKey(searchChar))
+	        {
+	          boolean requiredChar=requiredSubString.get(searchChar)==charactersInWindow.get(searchChar);
+	          
+	          if(requiredChar)
+	          {
+	            charFrequencies++;
+	          }
+	        }
+	        
+	        while(charFrequencies==totalRequiredChars && left<=right)
+	        {
+	          char chAtleft=s.charAt(left);
+	          
+	          windowSize=right-left+1;
+	          
+	          if(minWindowSize>windowSize)
+	          {
+	            minWindowSize=windowSize;
+	            windowStr=s.substring(left,right+1);
+	            System.out.println(windowStr);
+	          }
+	          
+	          charactersInWindow.put(chAtleft,charactersInWindow.get(chAtleft)-1);
+	          if(requiredSubString.containsKey(chAtleft))
+	          {
+	            boolean characterFailsRequirement =requiredSubString.get(chAtleft)>charactersInWindow.get(chAtleft);
+	            
+	            if(characterFailsRequirement)
+	            charFrequencies--;
+	          }
+	          
+	          left++;
+	        }
+	        
+	        right++;
+	      }
+	      return windowStr;
+	      
+	    }
+	  
+	  public static void  addToWindowMap(Map<Character,Integer> charactersInWindow,char searchChar)
+	  {
+	    if(charactersInWindow.containsKey(searchChar))
+	    {
+	      charactersInWindow.put(searchChar,charactersInWindow.get(searchChar)+1);
+	    }else
+	    {
+	      charactersInWindow.put(searchChar,1);
+	    }
+	  }
+
+}
