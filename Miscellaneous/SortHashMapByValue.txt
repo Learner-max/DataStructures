@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class SortHashMapByValue {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		HashMap<String,Integer> map=new HashMap<>();
+		map.put("a", 10);
+		map.put("b", 30);
+		map.put("c", 20);
+		map.put("d", 5);
+		map.put("e", 40);
+			
+	    ArrayList<Map.Entry<String,Integer>> list=new ArrayList<>();
+	    
+	    for(Map.Entry<String,Integer> e:map.entrySet())
+	    {
+	    	list.add(e);
+	    }
+	    Comparator<Map.Entry<String,Integer>> myComparator=new Comparator<Map.Entry<String,Integer>>() {
+	  
+			@Override
+			public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
+				// TODO Auto-generated method stub
+				Integer i1=e1.getValue();
+	    		Integer i2=e2.getValue();
+	    		
+	    		return i1.compareTo(i2);
+				
+			}
+	    };
+	    
+	    Collections.sort(list,myComparator);
+	    
+	    LinkedHashMap<String ,Integer> lmap=new LinkedHashMap<>();
+	    for(Map.Entry<String, Integer> m:list)
+	    {
+	    	lmap.put(m.getKey(), m.getValue());
+	    }
+	    
+	    System.out.println(lmap);
+	   
+	}
+
+}
