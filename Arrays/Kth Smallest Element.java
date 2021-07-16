@@ -67,4 +67,21 @@ class Codechef
         arr[r]=temp;
         return lesserItemTailIndex;
 	}
+	
+	//using max Heap TC-O(nlogk)
+	public static int kthSmallest(int[] arr, int n,int k)
+	{
+	    //Create a maxHeap
+	    PriorityQueue<Integer> pq=new PriorityQueue<Integer>(Collections.reverseOrder());
+	    for(int i=0;i<n;i++)
+	    {
+	        pq.add(arr[i]);
+	        if(pq.size()>k)
+	        {
+	            pq.remove();
+	        }
+	    }
+	    
+	    return pq.peek();
+	}
 }
