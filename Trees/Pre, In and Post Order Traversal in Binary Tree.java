@@ -194,11 +194,11 @@ class Codechef
             }
             Node curr=root;
             Stack<Node> s=new Stack<>();
-            //s.push(curr);
+            
             
             while(curr!=null ||!s.isEmpty())
             {
-                while(curr!=null )
+              /*  while(curr!=null )
                 {
                     s.push(curr);
                     curr=curr.left;
@@ -207,6 +207,21 @@ class Codechef
                 curr=s.pop();
                 System.out.print(curr.data+" ");
                 curr=curr.right;
+		
+		OR   */
+		    
+		 if(curr!=null )
+                {
+                    s.push(curr);
+                    curr=curr.left;
+                }
+                else{
+                curr=s.pop();
+                System.out.print(curr.data+" ");
+                curr=curr.right;
+                }  
+			    
+		    
             }
             
         }
