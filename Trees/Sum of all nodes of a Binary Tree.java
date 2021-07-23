@@ -111,6 +111,25 @@ class Codechef
            
            return sum;
        }
+	    
+	 public int sumOfTreeIterative(Node node)
+        {
+            Queue<Node> q=new LinkedList<>();
+            q.add(node);
+            int sum=0;
+            while(!q.isEmpty())
+            {
+                Node n=q.remove();
+                sum+=n.data;
+                if(n.left!=null)
+                q.add(n.left);
+                if(n.right!=null)
+                q.add(n.right);
+            }
+            
+            //System.out.println(sum);
+            return sum;
+        }
         
     }
     public static void main(String args[])
