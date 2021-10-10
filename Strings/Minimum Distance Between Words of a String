@@ -1,0 +1,59 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		String str="geeks for geeks contribute practice";
+		String w1 = "geeks" ;
+        String w2 = "practice" ;
+        
+        findMinWordDistance(str,w1,w2);
+	}
+	
+	public static void findMinWordDistance(String str,String word1,String word2)
+	{
+	    
+	    Map<String,List<Integer>> map=new HashMap<>();
+	    
+	    String[] words=str.split("\\s+");
+	    int i=0;
+	    for(String word:words)
+	    {
+	        if(map.containsKey(word))
+	        {
+	            map.get(word).add(i);
+	        }else
+	        {
+	            map.put(word,new ArrayList<Integer>());
+	            map.get(word).add(i);
+	        }
+	        i++;
+	    }
+	    List<Integer> l1=map.get(word1);
+	    List<Integer> l2=map.get(word2);
+	    if(l1==null || l2==null)
+	    return;
+	    int a=0; int b=0;
+	    int minDiff=Integer.MAX_VALUE;
+	    while(a<l1.size() && b<l2.size())
+	    {
+	        minDiff=Math.min(minDiff,Math.abs(l1.get(a)-l2.get(b))-1);
+	        if(l1.get(a)<l2.get(b))
+	        {
+	            a++;
+	        }else
+	        {
+	            b++;
+	        }
+	    }
+	    System.out.println(minDiff);
+	}
+}
+
