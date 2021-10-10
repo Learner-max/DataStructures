@@ -1,0 +1,48 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		int input=25;
+		convertIntegerToRoman(input);
+	}
+	
+	public static void convertIntegerToRoman(int input)
+	{
+	    
+	    TreeMap<Integer,Character> map=new TreeMap<>(Collections.reverseOrder());
+	    
+	    map.put(1000,'M');
+	    map.put(500,'D');
+	    map.put(100,'C');
+	    map.put(50,'L');
+	    map.put(10,'X');
+	    map.put(5,'V');
+	    map.put(1,'I');
+	    
+	    String res="";
+	   
+	    for(Map.Entry<Integer,Character> e:map.entrySet())
+	    {
+	       
+	        while(input>=e.getKey())
+	        {
+	            res+=e.getValue();
+	            input=input-e.getKey();
+	        }
+	       
+	    }
+	    
+	    System.out.println(res);
+	    
+	    
+	}
+}
+
