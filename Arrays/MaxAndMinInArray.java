@@ -94,4 +94,61 @@ class Codechef
 	    System.out.println(max);
 	    System.out.println(min);
 	}
+	
+	public static int[] getMinMaxDivideAndConq(int[] arr, int start,int end)
+	{
+	    //Using Divide and Conquer Strategy
+	    //Base Condn
+	    int max;
+	    int min;
+	   
+	    if(start==end)
+	    {
+	        int[] ans=new int[2];
+	        ans[0]=arr[start];//max
+	        ans[1]=arr[end];//min
+	        
+	        return ans;
+	    }
+	    else if(end==start+1)
+	    {
+	        int[] ans=new int[2];
+	        if(arr[end]>arr[start])
+	        {
+	            ans[0]=arr[end];//max
+	            ans[1]=arr[start];//min
+	        }else
+	        {
+	            ans[0]=arr[start];//max
+	            ans[1]=arr[end];//min
+	        }
+	        
+	        return ans;
+	    }
+	    else
+	    {
+	        int mid=start+(end-start)/2;
+	        
+	        int[] left=getMinMaxDivideAndConq(arr,start,mid);
+	        int[] right=getMinMaxDivideAndConq(arr,mid+1,end);
+	        if(left[0]>right[0])
+	        {
+	            max=left[0];
+	        }else
+	        {
+	            max=right[0];
+	        }
+	        if(left[1]<right[1])
+	        {
+	            min=left[1];
+	        }else
+	        {
+	            min=right[1];
+	        }
+	        
+	        int[] ans={max,min};
+	        return ans;
+	    }
+	    
+	}
 }
