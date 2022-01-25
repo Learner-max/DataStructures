@@ -1,0 +1,47 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		int[] arr={1, 2, 3, 4, 5};
+		int n=arr.length;
+		int K=9;
+		ArrayList<List<Integer>> list=findTriplets(arr, n, K);
+		for(List<Integer> l:list)
+		{
+		    System.out.println(l);
+		}
+	}
+	public static ArrayList<List<Integer>> findTriplets(int[] arr, int n, int K)  {
+		ArrayList<List<Integer>> result=new ArrayList<>();
+            
+	    // Write your code here.
+        for(int i=0;i<n;i++)
+        {
+           
+            int ele1=K-arr[i];
+             HashSet<Integer> set=new HashSet<>();
+            for(int j=i+1;j<n;j++)
+            {
+                int ele2=ele1-arr[j];
+                if(set.contains(ele2))
+                {
+                    result.add(Arrays.asList(arr[i],arr[j],ele2));
+                }else
+                {
+                    set.add(arr[j]);
+                }
+                
+            }
+        }
+        System.out.println("**Size"+result.size());
+        return result;
+	}
+}
