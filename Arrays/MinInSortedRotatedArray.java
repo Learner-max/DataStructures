@@ -83,4 +83,28 @@ lass Solution {
         
         return -1;
     }
+	
+	//Optimized Method
+	 public int findMin(int[] nums) {
+        
+        int l=0;
+        int h=nums.length-1;
+        int n=nums.length;
+        if(nums[0]<nums[n-1])
+            return nums[0];
+         int mid=l+(h-l)/2;
+        while(l<h)
+        {
+            
+            
+            if(nums[mid]>=nums[0])
+                l=mid+1;
+            else
+                h=mid;
+            mid=l+(h-l)/2;
+        }
+        
+        
+        return nums[l];
+    }
 }
