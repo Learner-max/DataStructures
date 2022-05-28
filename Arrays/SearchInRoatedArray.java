@@ -140,5 +140,63 @@ class Codechef
 	    }
 	    return -1;
 	}  
+	
+	//More Simpler Implementation 
+	
+	public int search(int[] nums, int target) {
+        
+        int l=0;
+        int h=nums.length-1;
+        int n=nums.length;
+        int pivot = findPivotIndex(nums,l,h,n);
+        //System.out.println(pivot);
+        if(target==nums[pivot])
+        {
+            return pivot;
+        
+         }else if(nums[pivot]<=target && target<=nums[n-1]){
+            
+           l=pivot+1;
+            
+        }else{
+            h=pivot-1;
+        }
+    
+        return binarySearch(nums, l, h, target);
+        
+    }
+    
+    
+    public int findPivotIndex(int[] nums,int l, int h, int n)
+    {
+        if(nums[0]<=nums[n-1])
+            return 0;
+        while(l<h){
+            int mid=l+(h-l)/2;
+            if(nums[mid]>=nums[0]){
+                l=mid+1;
+            }else
+                h=mid;
+        }
+        
+        return l;
+    }
+    
+    public int binarySearch(int[] nums, int l, int h, int target){
+        
+        while(l<=h){
+            int mid = l+(h-l)/2;
+            if(target==nums[mid]){
+                return mid;
+            }
+             else if(target>nums[mid]){
+                 l=mid+1;   
+             }else{
+                 h=mid-1;
+             }   
+           }
+        
+        return -1;
+    }
 	    
 }
